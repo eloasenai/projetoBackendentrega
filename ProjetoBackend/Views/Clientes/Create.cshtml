@@ -1,0 +1,71 @@
+﻿@model ProjetoBackend.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container">
+
+    <div style="color:#705FA6">
+        <h1 style="font-family:'Shrikhand',sans-serif;">Cadastro de </h1>
+    </div>
+    <div class="text-light">
+        <h1 style="font-family:'Shrikhand',sans-serif;">
+            Cliente
+        </h1>
+    </div>
+    <hr />
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <form asp-action="Create">
+                <div class="p-4 border rounded-4" style="background:#705FA6;">
+                    <div style="font-family:'Itim',sans-serif;">
+                        <div style="color:#FFFFFF;">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Nome" class="control-label">Nome</label>
+                                <input asp-for="Nome" class="form-control" />
+                                <span asp-validation-for="Nome" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Email" class="control-label">Email</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="CnpjCpf" class="control-label">CNPJ/CPF</label>
+                                <input asp-for="CnpjCpf" class="form-control" />
+                                <span asp-validation-for="CnpjCpf" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Celular" class="control-label">Celular</label>
+                                <input asp-for="Celular" class="form-control" oninput="formatarTelefone(this)" id="telefone" />
+                                <span asp-validation-for="Celular" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="DataNascimento" class="control-label">Data de Nascimento</label>
+                                <input type="date" asp-for="DataNascimento" class="form-control" />
+                                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                            </div>
+                            <input type="hidden" asp-for="DataCadastro" class="form-control" />
+                            <input type="hidden" asp-for="CadastroAtivo" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div style="font-family:'Itim',sans-serif;" class="d-flex justify-content-evenly mt-4">
+                    <input type="submit" value="Criar" class="btn btn-lg text-light" style="background:#705FA6;" />
+                    <a asp-action="Index" class="btn btn-lg text-light" style="background:#705FA6;">Voltar</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

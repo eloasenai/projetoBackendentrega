@@ -1,0 +1,38 @@
+﻿@model ProjetoBackend.Models.Categoria
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="container">
+    <h1 style="font-family:'Shrikhand',sans-serif;color:#FFFFFF">Editar</h1>
+
+    <h2 style="font-family:'Shrikhand',sans-serif;color:#413271">Categoria</h2>
+    <hr />
+    <div class="col-md-4">
+        <div class="justify-content-center p-3 border rounded-4 col-9" style="background:#413271">
+            <div style="font-family:'Itim',sans-serif;">
+                <div style="color:#FFFFFF">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="CategoriaId" />
+                        <div class="form-group">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="font-family:'Itim',sans-serif;" class="col-9  justify-content-evenly">
+        <input type="submit" value="Salvar" class="btn text-light" style="background:#413271" />
+        <a asp-action="Index" class="btn text-light" style="background:#413271">Voltar</a>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,30 @@
+﻿@model ProjetoBackend.Models.Categoria
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container">
+
+    <h1 style="font-family:'Shrikhand',sans-serif;color:#FFFFFF">Detalhes</h1>
+
+    <div>
+        <h4 style="font-family:'Shrikhand',sans-serif;color:#413271">Categoria</h4>
+        <hr />
+        <div class="justify-content-center p-3 border rounded-4 col-9" style="background:#413271">
+            <div style="font-family:'Itim',sans-serif;">
+                <div style="color:#FFFFFF">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Editar" class="btn btn-danger" style="background:#782988" /> |
+        <a asp-action="Index" class="btn text-light" style="background:#6D5DA4">Voltar</a>
+    </div>
+</div>

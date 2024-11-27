@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div style="font-family:'Shrikhand', sans-serif;">
+        <h1 class="text-light">Fornecedores</h1>
+    </div>
+    <form asp-action="Search" method="get">
+        <input type="text" name="nome" placeholder="Buscar fornecedores por nome..." />
+        <button type="submit"><ion-icon name="search"></ion-icon>Buscar</button>
+    </form>
+    <div style="font-family:'Shrikhand', sans-serif;">
+        <p>
+            <a asp-action="Create" class="text-black text-decoration-none text-decoration-underline">Cadastrar</a>
+        </p>
+    </div>
+    <div style="font-family:'Itim',sans-serif;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Celular)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CnpjCpf)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+    </div>
+    <body>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CnpjCpf)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FornecedorId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.FornecedorId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
+                </td>
+            </tr>
+        }
+    </body>
+    </table>
+</div>

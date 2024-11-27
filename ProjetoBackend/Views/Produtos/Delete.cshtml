@@ -1,0 +1,50 @@
+﻿@model ProjetoBackend.Models.Produto
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+<h1 style="font-family:'Shrikhand',sans-serif;color:#FFFFFF">Delete</h1>
+
+<h2 style="font-family:'Shrikhand',sans-serif;color:#413271">Produto</h2>
+<div>
+    <hr />
+            <div class="justify-content-center p-3 border rounded-4 col-9" style="background:#413271">
+                <div style="font-family:'Itim',sans-serif;">
+                    <div style="color:#FFFFFF">
+<h5 style="font-family:'Shrikhand',sans-serif;color:#FFFFFF">Você deseja apagar isso?</h5>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estoque)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estoque)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+    </dl>
+    </div>
+    </div>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProdutoId" />
+            <input type="submit" value="Deletar" class="btn btn-danger" style="background:#782988" /> |
+            <a asp-action="Index" class="btn text-light" style="background:#6D5DA4">Voltar</a>
+    </form>
+</div>
+</div>

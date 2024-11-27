@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Venda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div style="font-family:'Shrikhand', sans-serif;">
+        <h1 class="text-light">Vendas</h1>
+    </div>
+    <div style="font-family:'Shrikhand', sans-serif;">
+        <p>
+            <a asp-action="Create" class="text-black text-decoration-none text-decoration-underline">Cadastrar</a>
+        </p>
+    </div>
+    <div style="font-family:'Itim',sans-serif;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NotaFiscal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataVenda)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValorTotal)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <body>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.NotaFiscal)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Cliente)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.DataVenda)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>
+                    <td>
+                        <a asp-controller="ItensVendas" asp-action="Index" asp-route-id="@item.VendaId">Produtos</a> |
+
+                        <a asp-action="Edit" asp-route-id="@item.VendaId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.VendaId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VendaId">Delete</a>
+                    </td>
+                </tr>
+                }
+            </body>
+    </div>
+    </table>
+</div>

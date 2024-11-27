@@ -1,0 +1,36 @@
+﻿@model ProjetoBackend.Models.Servico
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <h1 style="font-family:'Shrikhand',sans-serif;color:#FFFFFF">Delete</h1>
+
+    <h2 style="font-family:'Shrikhand',sans-serif;color:#413271">Serviço</h2>
+    <div>
+    <div class="justify-content-center p-3 border rounded-4 col-9" style="background:#413271">
+        <div style="font-family:'Itim',sans-serif;">
+            <div style="color:#FFFFFF">
+                <h5 style="font-family:'Shrikhand',sans-serif;color:#FFFFFF">Você deseja deletar isso?</h5>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ValorServico)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ValorServico)
+                    </dd>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ServicoId" />
+        <input type="submit" value="Deletar" class="btn btn-danger" style="background:#782988" /> |
+        <a asp-action="Index" class="btn text-light" style="background:#6D5DA4">Voltar</a>
+    </form>
+</div>

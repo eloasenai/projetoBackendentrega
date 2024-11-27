@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Compra>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div style="font-family:'Shrikhand', sans-serif;">
+        <h1 class="text-light" style="text-decoration-underline">Compras</h1>
+    </div>
+    <div style="font-family:'Shrikhand', sans-serif;">
+        <p>
+            <a asp-action="Create" class="text-black text-decoration-none text-decoration-underline">Cadastrar</a>
+        </p>
+    </div>
+    <div style="font-family:'Itim',sans-serif;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FornecedorId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataCompra)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ValorTotal)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <body>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.FornecedorId)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.DataCompra)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CompraId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.CompraId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CompraId">Delete</a>
+                    </td>
+                </tr>
+                }
+            </body>
+    </div>
+    </table>
+</div>
